@@ -1,16 +1,24 @@
 const { authenticate } = require('feathers-authentication').hooks;
 const genRandName = require('../../hooks/gen-rand-room-name');
+const { restrictToOwner } = require('feathers-authentication-hooks');
 
+const restrict = [
+  authenticate('jwt'),
+  restrictToOwner({
+    idField: 'id',
+    ownerField: 'id',
+  }),
+];
 module.exports = {
   before: {
     all: [],
     // all: [ authenticate('jwt') ], TODO
-    find: [],
+    find: [...restrict],
     get: [],
     create: [authenticate('jwt'), genRandName()],
-    update: [],
-    patch: [],
-    remove: [],
+    update: [...restrict],
+    patch: [...restrict],
+    remove: [...restrict],
   },
 
   after: {

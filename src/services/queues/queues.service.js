@@ -11,7 +11,7 @@ module.exports = function () {
   const options = {
     name: 'queues',
     Model,
-    paginate
+    paginate,
   };
 
   // Initialize our service with any options it requires

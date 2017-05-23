@@ -31,18 +31,16 @@
       "subject": "lexsur",
       "issuer": "lexsur",
       "algorithm": "HS256",
-      "expiresIn": "7d",
-      "failureRedirect": "/login"
+      "expiresIn": "7d"
     },
     "local": {
       "entity": "user",
       "service": "users",
       "usernameField": "email",
-      "passwordField": "password",
-      "failureRedirect": "/login"
+      "passwordField": "password"
     },
     "cookie": {
-      "enabled": true,
+      "enabled": false,
       "name": "feathers-jwt",
       "httpOnly": false,
       "secure": false
